@@ -1,0 +1,11 @@
+Model Information:
+* title:	Artstation Website
+* source:	https://sketchfab.com/3d-models/artstation-website-ecd1e4c9b48f40068d0454efbf624bb0
+* author:	Tycho Magnetic Anomaly (https://sketchfab.com/Tycho_Magnetic_Anomaly)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Artstation Website" (https://sketchfab.com/3d-models/artstation-website-ecd1e4c9b48f40068d0454efbf624bb0) by Tycho Magnetic Anomaly (https://sketchfab.com/Tycho_Magnetic_Anomaly) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
