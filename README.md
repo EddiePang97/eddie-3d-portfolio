@@ -30,7 +30,7 @@
 ## 📦 Getting Started
 
 ```bash
-git clone https://github.com/yourusername/ep-3d-portfolio
+git clone https://github.com/EddiePang97/ep-3d-portfolio
 cd ep-3d-portfolio
 npm install
 npm run dev
