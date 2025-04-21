@@ -199,7 +199,7 @@ const projects: TProject[] = [
       },
     ],
     image: totoscanner, // 你可以換成你的 Flutter App 截圖
-    sourceCodeLink: "https://github.com/yourusername/toto-scanner",
+    sourceCodeLink: "",
   },
   {
     name: "CDN Admin Panel",
@@ -215,7 +215,7 @@ const projects: TProject[] = [
       },
     ],
     image: adminpanel, // 換成你 CDN 管理後台的截圖
-    sourceCodeLink: "https://github.com/yourusername/cdn-admin-panel",
+    sourceCodeLink: "",
   },
   {
     name: "Website Design",
@@ -235,7 +235,7 @@ const projects: TProject[] = [
       },
     ],
     image: websitedesign, // 可以放上網站設計預覽圖
-    sourceCodeLink: "https://github.com/yourusername/creative-website",
+    sourceCodeLink: "",
   },
 ];
 
