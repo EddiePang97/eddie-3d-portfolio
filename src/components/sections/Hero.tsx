@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 import { styles } from "../../constants/styles";
-import { ComputersCanvas } from "../canvas";
+import { WebsiteCanvas } from "../canvas";
 import { config } from "../../constants/config";
 import RotatingText from "../atoms/RotatingText";
 
@@ -42,7 +42,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      <WebsiteCanvas />
 
       <div className="xs:bottom-10 absolute bottom-32 flex w-full items-center justify-center">
         <a href="#about">

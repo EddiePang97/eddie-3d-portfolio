@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import type { SpringOptions } from "framer-motion";
 import gsap from "gsap";

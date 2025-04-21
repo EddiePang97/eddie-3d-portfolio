@@ -2,20 +2,22 @@ import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF, useAnimations } from "@react-three/drei";
 import CanvasLoader from "../layout/Loader";
+import * as THREE from "three";
 
-const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
-  const group = useRef();
-  const movingLightRef = useRef<any>();
+const WebSite: React.FC = () => {
+  const group = useRef<THREE.Group>(null);
+  const movingLightRef = useRef<THREE.SpotLight>(null);
   const { scene, animations } = useGLTF("./artstation_website/scene.gltf");
   const { actions } = useAnimations(animations, group);
 
-  // 播放模型动画
   useEffect(() => {
     const firstAnim = Object.keys(actions)[0];
-    if (firstAnim) actions[firstAnim].play();
+    const action = actions[firstAnim];
+    if (action) {
+      action.play();
+    }
   }, [actions]);
 
-  // 动态扫灯效果
   useFrame(({ clock }) => {
     if (movingLightRef.current) {
       const t = clock.getElapsedTime();
@@ -27,12 +29,10 @@ const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
 
   return (
     <group ref={group}>
-      {/* 环境光 + 背景光 */}
+      {/* Lighting */}
       <hemisphereLight intensity={0.15} groundColor="black" />
       <ambientLight intensity={2} />
       <directionalLight position={[5, 5, 5]} intensity={2} />
-
-      {/* 固定聚光灯 */}
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -41,8 +41,6 @@ const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         castShadow
         shadow-mapSize={1024}
       />
-
-      {/* 左上角扫动灯 */}
       <spotLight
         ref={movingLightRef}
         intensity={1.5}
@@ -52,8 +50,7 @@ const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
         color="white"
         position={[-5, 5, 2]}
       />
-
-      {/* 模型 */}
+      {/* Model */}
       <primitive
         object={scene}
         scale={0.01}
@@ -64,48 +61,40 @@ const Computers: React.FC<{ isMobile: boolean }> = ({ isMobile }) => {
   );
 };
 
-const ComputersCanvas = () => {
+const ComputersCanvas: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
     setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+    const handleMediaQueryChange = (event: MediaQueryListEvent) =>
       setIsMobile(event.matches);
-    };
-
     mediaQuery.addEventListener("change", handleMediaQueryChange);
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
+    return () => mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, []);
 
   return (
-    <>
-      {isMobile ? (
-        <></>
-      ) : (
-        <Canvas
-          frameloop="always"
-          shadows
-          dpr={[1, 2]}
-          camera={{ position: [0, 0, 3], fov: 45 }}
-          gl={{ preserveDrawingBuffer: true }}
-        >
-          <Suspense fallback={<CanvasLoader />}>
-            <OrbitControls
-              enablePan={false}
-              enableZoom={false}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 2}
-            />
-            <Computers isMobile={isMobile} />
-          </Suspense>
-          <Preload all />
-        </Canvas>
-      )}
-    </>
+    <Canvas
+      frameloop="always"
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [0, 0, 3], fov: 45 }}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        {/* 禁用 OrbitControls 在 mobile 裝置 */}
+        {!isMobile && (
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+          />
+        )}
+        <WebSite  />
+      </Suspense>
+      <Preload all />
+    </Canvas>
   );
 };
 
