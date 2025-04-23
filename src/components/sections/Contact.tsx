@@ -7,12 +7,18 @@ import { EarthCanvas } from "../canvas";
 import { SectionWrapper } from "../../hoc";
 import { config } from "../../constants/config";
 import { Header } from "../atoms/Header";
+import toast from "react-hot-toast";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const INITIAL_STATE = Object.fromEntries(
   Object.keys(config.contact.form).map((input) => [input, ""])
 );
+
+const WavingHand = () => (
+  <span className="inline-block animate-wave">👋</span>
+);
+
 
 const emailjsConfig = {
   serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -91,13 +97,22 @@ const Contact = () => {
     ).then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          toast('Thank you. I will get back to you as soon as possible.',
+            {
+              icon: <WavingHand />,
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+            }
+          );
           setForm(INITIAL_STATE);
         },
         (error) => {
           setLoading(false);
           console.log(error);
-          alert("Something went wrong.");
+          toast.error("Something went wrong.");
         }
       );
   };
