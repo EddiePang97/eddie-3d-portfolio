@@ -77,20 +77,18 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        {
-          form_name: form.name,
-          to_name: config.html.fullName,
-          from_email: form.email,
-          to_email: config.html.email,
-          message: form.message,
-        },
-        emailjsConfig.accessToken
-      )
-      .then(
+    emailjs.send(
+      emailjsConfig.serviceId,
+      emailjsConfig.templateId,
+      {
+        title: "Contact Form",                  // 對應 {{title}}
+        name: form.name,                        // 對應 {{name}}
+        email: form.email,                      // 對應 {{email}}
+        message: form.message,                  // 對應 {{message}}
+        time: new Date().toLocaleString(),      // 對應 {{time}}
+      },
+      emailjsConfig.accessToken
+    ).then(
         () => {
           setLoading(false);
           alert("Thank you. I will get back to you as soon as possible.");
