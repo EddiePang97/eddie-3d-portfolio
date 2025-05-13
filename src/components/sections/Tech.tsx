@@ -3,10 +3,10 @@ import FlowingMenu from "../atoms/FlowingMenu";
 
 const Tech = () => {
   const demoItems = [
-    { link: '#', text: 'React', image: '/gif/react.gif' },
-    { link: '#', text: 'Git', image: '/gif/git.gif' },
-    { link: '#', text: 'Flutter', image: '/gif/flutter.gif' },
-    { link: '#', text: 'Web', image: '/gif/web.gif' },
+    { link: '', text: 'React', image: '/gif/react.gif' },
+    { link: '', text: 'Git', image: '/gif/git.gif' },
+    { link: '', text: 'Flutter', image: '/gif/flutter.gif' },
+    { link: '', text: 'Web', image: '/gif/web.gif' },
   ];
   return (
 

@@ -127,9 +127,9 @@ const experiences: TExperience[] = [
     iconBg: "#E6DEDD",
     date: "Aug 2020 – Jul 2021",
     points: [
-      "剛加入時專注於學習 React.js、TypeScript 與團隊開發流程。",
-      "協助開發與維護部分 UI 元件，並修復簡單 bug。",
-      "熟悉 Git 協作、Pull Request 與 code review 流程。",
+      "Focused on learning React.js, TypeScript, and team development workflows.",
+      "Assisted in developing and maintaining UI components, and fixing simple bugs.",
+      "Gained familiarity with Git collaboration, pull requests, and code review processes.",
     ],
   },
   {
@@ -139,9 +139,9 @@ const experiences: TExperience[] = [
     iconBg: "#E6DEDD",
     date: "Aug 2021 – Jul 2022",
     points: [
-      "負責維護並優化公司主力 CDN 控制台前端功能。",
-      "獨立開發多個 UI 元件，支援不同產品模組。",
-      "與設計師與後端工程師密切合作，提升產品一致性與使用者體驗。",
+      "Responsible for maintaining and optimizing core frontend features of the company’s CDN console.",
+      "Independently developed multiple UI components supporting different product modules.",
+      "Collaborated closely with designers and backend developers to enhance product consistency and user experience.",
     ],
   },
   {
@@ -151,9 +151,9 @@ const experiences: TExperience[] = [
     iconBg: "#E6DEDD",
     date: "Aug 2022 – Present",
     points: [
-      "開始學習 Three.js 並嘗試在專案中實作 3D 視覺效果。",
-      "協助團隊維護複雜模組，並提出重構與優化建議。",
-      "參與部分 code review 與開發流程改進。",
+      "Explored Three.js out of personal interest and experimented with simple 3D visual effects in projects.",
+      "Supported the maintenance of complex modules and contributed ideas for refactoring and optimization.",
+      "Participated in code reviews and proposed improvements to the development workflow.",
     ],
   },
 ];
